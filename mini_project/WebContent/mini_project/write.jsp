@@ -15,6 +15,7 @@ body {
 </style>
 </head>
 <body>
+<form action="write_action.jsp" method="post">
 <table>
 	<caption>글쓰기</caption>
 <tr>
@@ -31,5 +32,6 @@ body {
 		<button type="submit">완료</button>
 		<button type="reset">초기화</button>
 </table>
+</form>
 </body>
 </html>
