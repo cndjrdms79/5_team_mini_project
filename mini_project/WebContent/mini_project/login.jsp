@@ -17,7 +17,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="icon" type="image/png" href="/favicon.png">
-<title>Login 화면</title>
+<title>Login 화면!</title>
 
 <link
 	href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap"
