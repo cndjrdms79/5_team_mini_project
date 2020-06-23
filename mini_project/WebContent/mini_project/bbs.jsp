@@ -1,3 +1,6 @@
+<%@page import="board.BoardDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="board.BoardDAO"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -5,51 +8,108 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	Connection conn = null;
-	PreparedStatement pstmt= null;
-	ResultSet rs = null;
+    String user_id = (String)session.getAttribute("user_id");
+
+	BoardDAO boardDAO = BoardDAO.getInstance();
+	List<BoardDTO> list = boardDAO.board_selete();
 	
-	StringBuffer sql = new StringBuffer();
-	sql.append(" select no, title, name, regdate");
-	sql.append(" from T_BOARD");
-	sql.append(" order by no desc");
-	
-	//try catch
-		
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="icon"type="image/png" href="/favicon.png">
-<title>Insert title here</title>
+<link rel="icon" type="image/png" href="/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style type="text/css">
 body {
-		font-family: 'Nanum Pen Script', cursive;
-		font-size:25px;
-	 }
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 25px;
+
+/*  	margin: 0;  */
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.nav-container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: lightseagreen;
+	list-style-type: none;
+}
+
+.nav-item {
+	padding: 15px;
+ 	cursor: pointer;
+}
+
+.nav-item a {
+	text-align: center;
+	test-decoration: none;
+	color: white;
+	padding: 15px;
+}
+
+.nav-item:nth-child(1) {
+	background-color: skyblue;
+}
+
+.nav-item:nth-child(5) {
+}
+
+.nav-item:hover {
+	background-color: grey;
+}
+
+.mt-auto{
+	margin: auto;
+}
 </style>
+<title>메인화면</title>
 </head>
 <body>
-<table border="1">
-	<caption>게시물 리스트</caption>
-<tr>
-	<th>번호</th>
-	<th>제목</th>
-	<th>작성자</th>
-	<th>날짜</th>
-</tr>
 
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-
-</table><br/>
-<a href="write.jsp">글쓰기</a><br/>
-
+<h1><b>인공지능 AI</b></h1>
+	<nav>
+		<ul class="nav-container">
+			<li class="nav-item"><a href="main.jsp">출결관리 웹페이지</a></li>
+			<li class="nav-item"><a href="calendar.jsp">달력</a></li>
+			<li class="nav-item"><a href="bbs.jsp">게시판</a></li>
+	<% if(user_id != null){ %>
+		<script type="text/javascript">
+			alert('<%=user_id + " 님이 로그인 하셨습니다."%>');
+		</script>
+			<li class="nav-item"><a href="logout.jsp">로그아웃</a></li> 
+	
+	<%} else {%>
+			<li class="nav-item"><a href="login.jsp">접속하기</a></li>
+			
+ 			
+		</ul>
+	<%  }   %>
+	</nav>
+	
+	<table class="mt-auto" border="1">
+		<caption>게시물 리스트</caption>
+	<tr>
+		<th>번호</th>
+		<th>제목</th>
+		<th>작성자</th>
+		<th>날짜</th>
+	</tr>
+	<% for(int i = 0; i < list.size(); i++) {%>
+		<tr>
+			<td><%=list.get(i).getNo() %></td>
+			<td><%=list.get(i).getTitle() %></td>
+			<td><%=list.get(i).getUser_id() %></td>
+			<td><%=list.get(i).getRegdate() %></td>
+		</tr>
+	<%} %>
+	
+	</table><br/>
+	<a href="write.jsp">글쓰기</a><br/>  
 </body>
 </html>

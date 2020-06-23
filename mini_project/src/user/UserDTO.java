@@ -70,8 +70,4 @@ public class UserDTO implements Serializable {
 				+ user_gender + ", user_email=" + user_email + ", user_birthdate=" + user_birthdate + ", user_phone="
 				+ user_phone + ", user_addr=" + user_addr + "]";
 	}
-	
-	
-	
-
 }

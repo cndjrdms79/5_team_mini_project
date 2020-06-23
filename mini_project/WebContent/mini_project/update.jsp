@@ -1,5 +1,23 @@
+<%@page import="user.UserDAO"%>
+<%@page import="user.UserDTO"%>
+<%@page import="board.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String user_id = request.getParameter("user_id");	
+	String user_pw = request.getParameter("user_pw");	
+	String title = request.getParameter("title");
+	String user_email = request.getParameter("content");
+
+	BoardDTO boardDTO = new BoardDTO();
+	boardDTO.setUser_id(user_id);
+	
+	UserDTO userDTO = new UserDTO();
+	userDTO.setUser_id(user_id);
+
+	UserDAO userDAO = UserDAO.getInstance();
+	int result = userDAO.loginCheck(user_id,user_pw);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,18 +36,13 @@ body {
 <table>
 <caption>게시물 수정</caption>
 <tr>
-	<th>글번호</th>
-	<td><input type="hidden" name="no" 
-		value="" /></td>
-</tr>
-<tr>
 	<th>제목</th>
 	<td><input type="text" name="title" 
-		value=""  required="required"/></td>
+		value="<%=boardDTO.getTitle() %>"  required="required"/></td>
 </tr>
 <tr>
 	<th>내용</th>
-	<td><textarea rows="8" cols="60" name="content"  required="required"></textarea></td>
+	<td><textarea rows="8" cols="60" name="content"  required="required"><%=boardDTO.getContent() %></textarea></td>
 </tr>
 <tr>
 	<th></th>

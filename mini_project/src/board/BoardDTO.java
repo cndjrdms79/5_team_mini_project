@@ -1,6 +1,7 @@
 package board;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class BoardDTO implements Serializable{
 	
@@ -8,7 +9,7 @@ public class BoardDTO implements Serializable{
 	private String title;
 	private String user_id;
 	private String content;
-	private String regdate;
+	private Date regdate;
 	private int available;
 	
 	public long getNo() {
@@ -35,10 +36,10 @@ public class BoardDTO implements Serializable{
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getRegdate() {
+	public Date getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(String regdate) {
+	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
 	public int getAvailable() {

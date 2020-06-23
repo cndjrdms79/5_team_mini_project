@@ -1,5 +1,25 @@
+<%@page import="board.BoardDTO"%>
+<%@page import="user.UserDAO"%>
+<%@page import="user.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String user_id = request.getParameter("user_id");	
+	String user_pw = request.getParameter("user_pw");	
+	String title = request.getParameter("title");
+	String user_name = request.getParameter("user_name");
+	String regdate = request.getParameter("regdate");
+	String user_email = request.getParameter("content");
+
+	BoardDTO boardDTO = new BoardDTO();
+	boardDTO.setUser_id(user_id);
+	UserDTO userDTO = new UserDTO();
+	userDTO.setUser_id(user_id);
+
+	UserDAO userDAO = UserDAO.getInstance();
+	int result = userDAO.loginCheck(user_id,user_pw);
+%>    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,27 +35,29 @@ body {
 </style>
 </head>
 <body>
+<%		if(boardDTO != null) { %>
 <table border="1">
 	<caption>글 상세보기</caption>
 <tr>
 	<th>제목</th>
-	<td></td>
+	<td><%=boardDTO.getTitle() %></td>
 </tr>
 <tr>
 	<th>작성자</th>
-	<td></td>
+	<td><%=userDTO.getUser_name() %></td>
 </tr>
 <tr>
 	<th>작성일</th>
-	<td></td>
+	<td><%=boardDTO.getRegdate() %></td>
 </tr>
 <tr>
 	<th>내용</th>
-	<td></td>
+	<td><%=boardDTO.getContent() %></td>
 </tr>
 </table><br/>
 <a href="bbs.jsp">목록</a>
-<a href="update.jsp?no=">수정</a>
-<a href="delete.jsp?no=">삭제</a>
+<a href="update.jsp?no=<%=boardDTO.getUser_id()%>">수정</a>
+<a href="delete.jsp?no=<%=boardDTO.getUser_id()%>">삭제</a>
+<%		} %>
 </body>
 </html>
