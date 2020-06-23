@@ -31,7 +31,7 @@ body {
 /*  	margin: 0;  */
 	margin-left: auto;
 	margin-right: auto;
-	text-align: left;
+	text-align: center;
 }
 
 .nav-container {
@@ -73,7 +73,7 @@ body {
 			<li class="nav-item"><a href="main.jsp">출결관리 웹페이지</a></li>
 			<li class="nav-item"><a href="calendar.jsp">달력</a></li>
 			<li class="nav-item"><a href="bbs.jsp">게시판</a></li>
-			<li class="nav-item"><a href="login.jsp">로그인</a></li>
+			<li class="nav-item"><a href="login.jsp">접속하기</a></li>
 		</ul>
 	</nav>
 
@@ -87,12 +87,12 @@ body {
 <tr>
 	<td>아이디</td>
 	<td><input type = "text" name ="user_id" value="<%=user_id %>"
-		       autofocus="autofocus" required="required" placeholder="ID"/></td>  
+		       autofocus="autofocus" required="required" placeholder="ID" maxlength="20"/></td>  
 </tr>
 
 <tr>
 	<td>비빌번호</td>
-	<td><input type = "password" name ="user_pw" required="required" placeholder="Password"/></td>
+	<td><input type = "password" name ="user_pw" required="required" placeholder="Password"/ maxlength="20"></td>
 </tr>
 
 <tr>
@@ -100,7 +100,7 @@ body {
 	<td>
 	<input type="submit" value="로그인" />
 	<input type="button" value="회원가입" onclick="location.href='join.jsp'" />
-	<input type = "checkbox" name ="save_id" <%if(!user_id.equals("")){ %>
+	<input type="checkbox" name ="save_id" <%if(!user_id.equals("")){ %>
 													checked="checked" 
 												 <% } %> />아이디저장
 												 

@@ -1,3 +1,5 @@
+<%@page import="user.UserDAO"%>
+<%@page import="user.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -10,6 +12,19 @@
 	String user_email = request.getParameter("user_email");
 	String user_phone = request.getParameter("user_phone");
 	String user_addr = request.getParameter("user_addr");
+	
+	UserDTO userDTO = new UserDTO();
+	userDTO.setUser_id(user_id);
+	userDTO.setUser_pw(user_pw);
+	userDTO.setUser_name(user_name);
+	userDTO.setUser_birthdate(user_birthdate);
+	userDTO.setUser_gender(user_gender);
+	userDTO.setUser_email(user_email);
+	userDTO.setUser_phone(user_phone);
+	userDTO.setUser_addr(user_addr);
+	
+	UserDAO userDAO = UserDAO.getInstance();
+	boolean result = userDAO.join(userDTO);
 	
 
 %>
@@ -28,13 +43,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
-
-
-
-
-
+<% if (result){ %>
+	<script type="text/javascript">
+		alert('회원가입에 성공했습니다.');
+		location.href="login.jsp";
+	</script>
+<% }else{ %>
+	<script type="text/javascript">
+		alert('이미 존재하는 아이디 입니다.');
+		location.href='javascript:history.back()';
+	</script>
+<%} %>
 
 
 

@@ -48,6 +48,7 @@ CREATE TABLE t_user
 
 select * from T_BOARD;
 select * from T_USER;
+select user_name, user_addr from T_USER;
 
 insert into T_USER(user_id, user_pw, user_name, user_gender, user_email, user_birthdate, user_phone, user_addr)
 values('next','d404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db',

@@ -14,7 +14,7 @@ body {
 /*  	margin: 0;  */
 	margin-left: auto;
 	margin-right: auto;
-	text-align: left;
+	text-align: center;
 }
 
 .nav-container {
@@ -58,7 +58,7 @@ body {
 			<li class="nav-item"><a href="main.jsp">출결관리 웹페이지</a></li>
 			<li class="nav-item"><a href="calendar.jsp">달력</a></li>
 			<li class="nav-item"><a href="bbs.jsp">게시판</a></li>
-			<li class="nav-item"><a href="login.jsp">로그인</a></li>
+			<li class="nav-item"><a href="login.jsp">접속하기</a></li>
 		</ul>
 	</nav>
 
@@ -100,7 +100,7 @@ body {
 			</tr>
 			<tr>
 				<th>주소</th>
-				<td><input type="text" placeholder="주소" name="user_addr" size="60" /></td>
+				<td><input type="text" placeholder="주소" name="user_addr" size="65" maxlength="45" /></td>
 			</tr>					
 			<tr>
 				<th></th>

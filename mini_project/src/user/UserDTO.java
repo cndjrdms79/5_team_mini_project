@@ -9,7 +9,7 @@ public class UserDTO implements Serializable {
 	private String user_id;
 	private String user_pw;
 	private String user_name;
-	private String user_genter;
+	private String user_gender;
 	private String user_email;
 	private String user_birthdate;
 	private String user_phone;
@@ -33,11 +33,11 @@ public class UserDTO implements Serializable {
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
 	}
-	public String getUser_genter() {
-		return user_genter;
+	public String getUser_gender() {
+		return user_gender;
 	}
-	public void setUser_genter(String user_genter) {
-		this.user_genter = user_genter;
+	public void setUser_gender(String user_gender) {
+		this.user_gender = user_gender;
 	}
 	public String getUser_email() {
 		return user_email;
@@ -66,8 +66,8 @@ public class UserDTO implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "UserDTO [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_genter="
-				+ user_genter + ", user_email=" + user_email + ", user_birthdate=" + user_birthdate + ", user_phone="
+		return "UserDTO [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_gender="
+				+ user_gender + ", user_email=" + user_email + ", user_birthdate=" + user_birthdate + ", user_phone="
 				+ user_phone + ", user_addr=" + user_addr + "]";
 	}
 	

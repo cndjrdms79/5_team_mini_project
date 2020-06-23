@@ -43,23 +43,53 @@ public class UserDAO {
 
 		try(Connection conn = getConnection();
 				PreparedStatement pstmt =  conn.prepareStatement(sql.toString())){
-			
 			pstmt.setString(1, user_id);
 			
 			try(ResultSet rs = pstmt.executeQuery()) {
 				if (rs.next()) { // 입력한 아이디에 해당하는 비번이 있는경우
-					return 1;
-				} else {
-					return 0;
-				}
+					if(rs.getString(1).equals(user_pw)) {
+						return 1;
+					}else {
+						return 0;
+					}
+			}
+			return -1;
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
 		}catch(Exception e){
 				e.printStackTrace();
 		}
-		return -1; // 데이터베이스 오류
+		return -2; // 데이터베이스 오류
 	}
 
+		public boolean join(UserDTO userDTO) {
+			
+			boolean result = false;
+			StringBuffer sql = new StringBuffer();
+			sql.append(" insert into T_USER(user_id, user_pw, user_name, user_gender, user_email, user_birthdate, user_phone, user_addr)");
+			sql.append(" values(?, ?, ?, ?, ?, ?, ?, ?)");
+			
+			try(Connection conn = getConnection();
+					PreparedStatement pstmt =  conn.prepareStatement(sql.toString())){
+				pstmt.setString(1, userDTO.getUser_id());
+				pstmt.setString(2, userDTO.getUser_pw());
+				pstmt.setString(3, userDTO.getUser_name());
+				pstmt.setString(4, userDTO.getUser_gender());
+				pstmt.setString(5, userDTO.getUser_email());
+				pstmt.setString(6, userDTO.getUser_birthdate());
+				pstmt.setString(7, userDTO.getUser_phone());
+				pstmt.setString(8, userDTO.getUser_addr());
+				if (pstmt.executeUpdate() > 0) { // 정상수행이면 1로 return 한다.
+					result = true;
+				}
+
+			}catch(Exception e){
+					e.printStackTrace();
+			}
+			return result; // 데이터베이스 오류
+		}
+			
+		
 	
 }
