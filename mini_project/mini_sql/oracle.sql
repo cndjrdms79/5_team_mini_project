@@ -47,12 +47,17 @@ CREATE TABLE t_user
 );
 
 select * from T_BOARD;
+delete from T_BOARD;
+
 select * from T_USER;
 select user_name, user_addr from T_USER;
 
 insert into T_USER(user_id, user_pw, user_name, user_gender, user_email, user_birthdate, user_phone, user_addr)
 values('next','d404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db',
 '정혜성','남자','cndjrdms79@naver.com','19960206','01012341234','대구시 달성군 현풍면');
+
+insert into t_board(no, title, user_id, regdate, content, available)
+values(t_board_no_seq.nextval,'안녕하세요','next',sysdate,'반갑습니다',1);
 
 commit
 

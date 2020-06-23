@@ -65,12 +65,13 @@ body {
 			<li class="nav-item"><a href="login.jsp">접속하기</a></li>
 		</ul>
 	</nav>
+	<br><h2>회원가입 화면</h2><br/>
 
 
 <div align="center">
 	<form action="join_action.jsp" method="get">
 		<table>
-		<caption><h3><b>회원가입</b></h3></caption>
+		
 			<tr>
 				<th>아이디</th>
 				<td><input type="text" placeholder="아이디" name="user_id" autofocus="autofocus" required="required" /></td>

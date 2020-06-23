@@ -80,11 +80,11 @@ body {
 			<li class="nav-item"><a href="login.jsp">접속하기</a></li>
 		</ul>
 	</nav>
+	<br><h2>로그인 화면</h2><br/>
 
 <div align="center">
 <form action="login_action.jsp" method="post">
 <table>
-	<caption><h3><b>로그인 화면</b></h3></caption>
 
 <!-- required: 무조건 입력되어야 실행가능, autofocus: 화면시작시 커서위치 -->
 

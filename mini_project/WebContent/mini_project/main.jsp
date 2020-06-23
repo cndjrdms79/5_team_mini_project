@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-		String user_id = (String)session.getAttribute("user_id");
+	String user_id = (String)session.getAttribute("user_id");
 %>    
 
 <!DOCTYPE html>
@@ -65,9 +65,6 @@ body {
 			<li class="nav-item"><a href="calendar.jsp">달력</a></li>
 			<li class="nav-item"><a href="bbs.jsp">게시판</a></li>
 	<% if(user_id != null){ %>
-		<script type="text/javascript">
-			alert('<%=user_id + " 님이 로그인 하셨습니다."%>');
-		</script>
 			<li class="nav-item"><a href="logout.jsp">로그아웃</a></li> 
 	
 	<%} else {%>

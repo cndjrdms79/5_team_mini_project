@@ -27,14 +27,13 @@ public class BoardDAO {
 		}
 	}
 	
-	@SuppressWarnings("unused")
 	private Connection getConnection() throws SQLException {
 		return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","mini","mini");
 	}
 	
 	
 	// board_selete DAO
-	// t_board 목록 가져오기
+	// t_board 목록 가져오기(bbs.jsp)
 	public List<BoardDTO> board_selete() {
 		List<BoardDTO> list = new ArrayList<BoardDTO>();
 		StringBuffer sql = new StringBuffer();
@@ -63,5 +62,36 @@ public class BoardDAO {
 		
 		return list;
 	}
+	
+	public BoardDTO getView(long no) {
+		BoardDTO boardDTO = null;
+		StringBuffer sql = new StringBuffer();
+		sql.append(" select no, title, user_id, regdate, content");
+		sql.append(" from t_board");
+		sql.append(" where no=?");
+		
+		try(Connection conn = getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString())){
+			pstmt.setLong(1, no);
+			try(ResultSet rs = pstmt.executeQuery()){
+				if(rs.next()) {
+					boardDTO = new BoardDTO();
+					boardDTO.setNo(rs.getLong("no"));
+					boardDTO.setTitle(rs.getString("title"));
+					boardDTO.setUser_id(rs.getString("user_id"));
+					boardDTO.setRegdate(rs.getDate("regdate"));
+					boardDTO.setContent(rs.getString("content"));
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return boardDTO;
+	}
+	
+	
+	
 	
 }

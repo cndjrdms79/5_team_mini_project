@@ -7,12 +7,9 @@
     pageEncoding="UTF-8"%>
 <%
 	String user_id = (String)session.getAttribute("user_id");
-
+	long no = Long.parseLong(request.getParameter("no"));
 	BoardDAO boardDAO = BoardDAO.getInstance();
-	List<BoardDTO> list = boardDAO.board_selete();
-	BoardDTO boardDTO = new BoardDTO();
-	UserDAO userDAO = UserDAO.getInstance();
-	UserDTO userDTO = new UserDTO();
+	BoardDTO boardDTO = boardDAO.getView(no);
 %>    
     
 <!DOCTYPE html>
@@ -30,7 +27,8 @@ body {
 </style>
 </head>
 <body>
-<%		if(boardDTO != null) { %>
+<%	if(boardDTO != null) { %>
+<div align="center">
 <table border="1">
 	<caption>글 상세보기</caption>
 <tr>
@@ -39,7 +37,7 @@ body {
 </tr>
 <tr>
 	<th>작성자</th>
-	<td><%=userDTO.getUser_name() %></td>
+	<td><%=boardDTO.getUser_id() %></td>
 </tr>
 <tr>
 	<th>작성일</th>
@@ -50,9 +48,12 @@ body {
 	<td><%=boardDTO.getContent() %></td>
 </tr>
 </table><br/>
+
 <a href="bbs.jsp">목록</a>
 <a href="update.jsp?no=<%=boardDTO.getUser_id()%>">수정</a>
 <a href="delete.jsp?no=<%=boardDTO.getUser_id()%>">삭제</a>
+
 <%		} %>
+</div>
 </body>
 </html>
