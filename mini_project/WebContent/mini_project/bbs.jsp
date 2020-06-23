@@ -18,6 +18,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+	<!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style type="text/css">
@@ -91,8 +95,8 @@ body {
 		</ul>
 	<%  }   %>
 	</nav>
-	
-	<table class="mt-auto" border="1">
+	<div align="center">
+	<table class="table-info"border="1">
 		<caption>게시물 리스트</caption>
 	<tr>
 		<th>번호</th>
@@ -111,5 +115,6 @@ body {
 	
 	</table><br/>
 	<a href="write.jsp">글쓰기</a><br/>  
+	</div>
 </body>
 </html>

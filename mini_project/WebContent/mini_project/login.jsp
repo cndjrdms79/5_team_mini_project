@@ -18,6 +18,10 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/png" href="/favicon.png">
 <title>Login 화면!</title>
+	<!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 <link
 	href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap"
@@ -98,8 +102,8 @@ body {
 <tr>
 	<th> </th>
 	<td>
-	<input type="submit" value="로그인" />
-	<input type="button" value="회원가입" onclick="location.href='join.jsp'" />
+	<input type="submit" class="btn btn-info" value="로그인" />
+	<input type="button" class="btn btn-info" value="회원가입" onclick="location.href='join.jsp'" />
 	<input type="checkbox" name ="save_id" <%if(!user_id.equals("")){ %>
 													checked="checked" 
 												 <% } %> />아이디저장
