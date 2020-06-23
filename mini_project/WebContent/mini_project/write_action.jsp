@@ -5,14 +5,14 @@
     pageEncoding="UTF-8"%>
 <%
 	String title = request.getParameter("title");
-	String content = request.getParameter("passwd");
+	String content = request.getParameter("content");
 	boolean result = false;
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	
 	StringBuffer sql = new StringBuffer();
-	sql.append(" insert into T_BOARD(no, title, name, passwd, content)");
-	sql.append(" values(T_BOARD_no_seq.nextval, ?, ?, ?, ?)");
+	sql.append(" insert into T_BOARD(no, title, content)");
+	sql.append(" values(T_BOARD_no_seq.nextval, ?, ?)");
 	
 	try {
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -50,7 +50,7 @@ body {
 <body>
 <script type="text/javascript">
 <% if (result) { %> 
-	location.href='list.jsp';
+	location.href='bbs.jsp';
 <% } else { %>
 	alert('입력에 실패했습니다');
 	location.href='javascript:history.back()';
