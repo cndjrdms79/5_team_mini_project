@@ -114,7 +114,7 @@ body {
 	<%} %>
 	
 	</table><br/>
-	<a href="write.jsp">글쓰기</a><br/>  
+	<button type="button" class="btn btn-info"><a href="write.jsp"><span style="color: white;">글쓰기</span></a><br/></button>
 	</div>
 </body>
 </html>

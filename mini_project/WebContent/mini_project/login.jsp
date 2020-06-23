@@ -95,7 +95,7 @@ body {
 </tr>
 
 <tr>
-	<td>비빌번호</td>
+	<td>비밀번호</td>
 	<td><input type = "password" name ="user_pw" required="required" placeholder="Password"/ maxlength="20"></td>
 </tr>
 
