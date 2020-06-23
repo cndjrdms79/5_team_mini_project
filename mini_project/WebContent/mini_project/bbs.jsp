@@ -102,8 +102,8 @@ body {
 	</tr>
 	<% for(int i = 0; i < list.size(); i++) {%>
 		<tr>
-			<td><%=list.get(i).getNo() %></td>
-			<td><%=list.get(i).getTitle() %></td>
+			<td><%=(i+1) %></td>
+			<td><a href="view.jsp?no=<%=list.get(i).getNo() %>"><%=list.get(i).getTitle() %></a></td>
 			<td><%=list.get(i).getUser_id() %></td>
 			<td><%=list.get(i).getRegdate() %></td>
 		</tr>

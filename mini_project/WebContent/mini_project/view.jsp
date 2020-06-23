@@ -1,23 +1,18 @@
+<%@page import="java.util.List"%>
+<%@page import="board.BoardDAO"%>
 <%@page import="board.BoardDTO"%>
 <%@page import="user.UserDAO"%>
 <%@page import="user.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String user_id = request.getParameter("user_id");	
-	String user_pw = request.getParameter("user_pw");	
-	String title = request.getParameter("title");
-	String user_name = request.getParameter("user_name");
-	String regdate = request.getParameter("regdate");
-	String user_email = request.getParameter("content");
+	String user_id = (String)session.getAttribute("user_id");
 
+	BoardDAO boardDAO = BoardDAO.getInstance();
+	List<BoardDTO> list = boardDAO.board_selete();
 	BoardDTO boardDTO = new BoardDTO();
-	boardDTO.setUser_id(user_id);
-	UserDTO userDTO = new UserDTO();
-	userDTO.setUser_id(user_id);
-
 	UserDAO userDAO = UserDAO.getInstance();
-	int result = userDAO.loginCheck(user_id,user_pw);
+	UserDTO userDTO = new UserDTO();
 %>    
     
 <!DOCTYPE html>
