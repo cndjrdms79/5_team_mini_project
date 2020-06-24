@@ -7,93 +7,16 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file = "../commons/header.jsp" %> 
 <%
-    String user_id = (String)session.getAttribute("user_id");
-	
 	BoardDAO boardDAO = BoardDAO.getInstance();
 	List<BoardDTO> list = boardDAO.board_selete();
 	
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<!-- Required meta tags -->
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous">
-<link rel="icon" type="image/png" href="/favicon.png">
-<link
-	href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap"
-	rel="stylesheet">
-<style type="text/css">
-body {
-	font-family: 'Nanum Pen Script', cursive;
-	font-size: 25px;
-	/*  	margin: 0;  */
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
 
-.nav-container {
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	background-color: lightseagreen;
-	list-style-type: none;
-}
-
-.nav-item {
-	padding: 15px;
-	cursor: pointer;
-}
-
-.nav-item a {
-	text-align: center;
-	test-decoration: none;
-	color: white;
-	padding: 15px;
-}
-
-.nav-item:nth-child(1) {
-	background-color: skyblue;
-}
-
-.nav-item:hover {
-	background-color: grey;
-}
-
-.mt-auto {
-	margin: auto;
-}
-</style>
-<title>메인화면</title>
-</head>
 <body>
 
-	<h1>
-		<b>인공지능 AI</b>
-	</h1>
-	<nav>
-		<ul class="nav-container">
-			<li class="nav-item"><a href="main.jsp">출결관리 웹페이지</a></li>
-			<li class="nav-item"><a href="calendar.jsp">달력</a></li>
-			<li class="nav-item"><a href="bbs.jsp">게시판</a></li>
-			<% if(user_id != null){ %>
-			<li class="nav-item"><a href="logout.jsp">로그아웃</a></li>
-
-			<%} else {%>
-			<li class="nav-item"><a href="login.jsp">접속하기</a></li>
-		</ul>
-		<%  }  %>
-	</nav><br/>
+	<br><h2>게시판 화면</h2><br/>
 
 
 	<div class="container-md">
@@ -108,12 +31,12 @@ body {
 					</tr>
 				</thead>
 				<tbody>
-					<% for (BoardDTO boardDTO : list) { %>
+					<% for (int i = 0; i < list.size(); i++) { %>
 					<tr>
-						<td><%=boardDTO.getNo()%></td>
-						<td><a href="view.jsp?no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%></a></td>
-						<td><%=boardDTO.getUser_id() %></td>
-						<td><%=boardDTO.getRegdate() %></td>
+						<td><%=(i + 1)%></td>
+						<td><a href="view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
+						<td><%=list.get(i).getUser_id()%></td>
+						<td><%=list.get(i).getRegdate()%></td>
 					</tr>
 					<% } %>
 				</tbody>

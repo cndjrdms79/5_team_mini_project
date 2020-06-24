@@ -2,31 +2,18 @@
 <%@page import="board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String user_id = (String)session.getAttribute("user_id");
-	
+<%@ include file = "../commons/header.jsp" %> 
+<%	
 	long no = Long.parseLong(request.getParameter("no"));
 	BoardDAO boardDAO = BoardDAO.getInstance();	
 	BoardDTO boardDTO = boardDAO.getView(no);
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<link rel="icon" type="image/png" href="/favicon.png">
-<title>게시물 수정</title>
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-<style type="text/css">
-body {
-		font-family: 'Nanum Pen Script', cursive;
-		font-size:25px;
-     }
-</style>
-</head>
+
+<br><h2>게시글수정 화면</h2><br/>
 <body>
 <form action="update_action.jsp" method="post">
+<div align="center">
 <table>
-<caption>게시물 수정</caption>
 <tr>
 	<th>글번호</th>
 	<td><%=boardDTO.getNo() %>
