@@ -2,5 +2,9 @@
     pageEncoding="UTF-8"%>
 <%
 	session.invalidate(); // 세션을 날림
-	response.sendRedirect("login.jsp");
 %>
+<script>
+alert('로그아웃되었습니다.');
+location.href='login.jsp';
+
+</script>

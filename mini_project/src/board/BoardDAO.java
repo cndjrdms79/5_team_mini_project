@@ -8,9 +8,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class BoardDAO {
 	private static BoardDAO boardDAO = null;
-
+	private static Logger logger = LoggerFactory.getLogger(BoardDAO.class);
+	
 //  싱글톤 패턴 적용
 	public static BoardDAO getInstance() {
 		if(boardDAO == null) {
@@ -21,7 +25,7 @@ public class BoardDAO {
 // oracle 연결!!
 	private BoardDAO() {
 		try {
-			Class.forName("oracle.jdbc.OracleDriver");
+			Class.forName("net.sf.log4jdbc.DriverSpy");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -100,14 +104,15 @@ public class BoardDAO {
 		boolean result = false;
 		
 		StringBuffer sql = new StringBuffer();
-		sql.append(" insert into t_board(no, title, content)");
-		sql.append(" valuse(t_board_no_seq.nextval, ?, ?)");
+		sql.append(" insert into t_board(no, title, content, user_id)");
+		sql.append(" values(t_board_no_seq.nextval, ?, ?, ?)");
 		
 		try(Connection conn = getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql.toString())){
 			
 			pstmt.setString(1, boardDTO.getTitle());
 			pstmt.setString(2, boardDTO.getContent());
+			pstmt.setString(3, boardDTO.getUser_id());
 			
 			if(pstmt.executeUpdate() > 0) {
 				result = true;
@@ -124,7 +129,7 @@ public class BoardDAO {
 			
 			StringBuffer sql = new StringBuffer();
 			sql.append(" update t_board set");
-			sql.append("       ,title  = ?");
+			sql.append("        title  = ?");
 			sql.append("       ,content= ?");
 			sql.append(" where  no = ?");
 			

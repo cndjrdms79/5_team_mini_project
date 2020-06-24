@@ -8,14 +8,14 @@
 <%	
 	String user_id = request.getParameter("user_id");	// request.getParameter user_id 요청
 	String user_pw = request.getParameter("user_pw");	// request.getParameter user_pw 요청
-	user_pw = DigestUtils.sha512Hex(user_pw);			// user_pw를 암호화 하여 user_pw 안에 넣기
+	//user_pw = DigestUtils.sha512Hex(user_pw);			// user_pw를 암호화 하여 user_pw 안에 넣기
 	
 	UserDTO userDTO = new UserDTO();
 	userDTO.setUser_id(user_id);
 	userDTO.setUser_pw(user_pw);
 	
 	UserDAO userDAO = UserDAO.getInstance();
-	int result = userDAO.loginCheck(user_id, user_pw);
+	UserDTO userInfo = userDAO.loginCheck(userDTO);
 
 %>
 <!DOCTYPE html>
@@ -33,10 +33,11 @@
 			save_id=true;
 		}
 		
-		if (result == 1) {	// user_id와 user_pw가 일치한 경우
+		if (userInfo != null) {	// user_id와 user_pw가 일치한 경우
 			Cookies cookie = new Cookies(request);	
 			response.addCookie(cookie.createCookie("user_id", user_id, "/" , save_id ? 60*60*24*30 : 0));
-			session.setAttribute("user_id", userDTO.getUser_id());
+			session.setAttribute("user_id", userInfo.getUser_id());
+			session.setAttribute("user_name", userInfo.getUser_name());
 			response.sendRedirect("main.jsp");
 			return;
 	 } else {		// user_id와 user_pw 가 틀린경우	%>

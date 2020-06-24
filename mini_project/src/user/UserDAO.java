@@ -34,33 +34,29 @@ public class UserDAO {
 	
 	
 	// login_action DAO
-	public int loginCheck(String user_id, String user_pw) {
-		
+	public UserDTO loginCheck(UserDTO userDTO) {
+		UserDTO userInfo = null;
 		StringBuffer sql = new StringBuffer();
-		sql.append(" select user_pw");
+		sql.append(" select user_id, user_name");
 		sql.append(" from   t_user");
-		sql.append(" where  user_id=?");
+		sql.append(" where  user_id=? and user_pw=?");
 
 		try(Connection conn = getConnection();
 				PreparedStatement pstmt =  conn.prepareStatement(sql.toString())){
-			pstmt.setString(1, user_id);
+			pstmt.setString(1, userDTO.getUser_id());
+			pstmt.setString(2, userDTO.getUser_pw());
 			
 			try(ResultSet rs = pstmt.executeQuery()) {
 				if (rs.next()) { // 입력한 아이디에 해당하는 비번이 있는경우
-					if(rs.getString(1).equals(user_pw)) {
-						return 1;
-					}else {
-						return 0;
-					}
-			}
-			return -1;
-			}catch (Exception e) {
-				e.printStackTrace();
+					userInfo = new UserDTO();
+					userInfo.setUser_id(rs.getString("user_id"));
+					userInfo.setUser_name(rs.getString("user_name"));
+				}
 			}
 		}catch(Exception e){
 				e.printStackTrace();
 		}
-		return -2; // 데이터베이스 오류
+		return userInfo; // 데이터베이스 오류
 	}
 
 		public boolean join(UserDTO userDTO) {

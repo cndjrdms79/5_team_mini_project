@@ -11,6 +11,7 @@
 	String content = request.getParameter("content");
 	
 	BoardDTO boardDTO = new BoardDTO();
+	boardDTO.setUser_id(user_id);
 	boardDTO.setTitle(title);
 	boardDTO.setContent(content);
 	

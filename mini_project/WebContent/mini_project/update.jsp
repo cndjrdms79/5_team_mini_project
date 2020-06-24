@@ -28,6 +28,12 @@ body {
 <table>
 <caption>게시물 수정</caption>
 <tr>
+	<th>글번호</th>
+	<td><%=boardDTO.getNo() %>
+		<input type="hidden" name="no" 
+		value="<%=boardDTO.getNo() %>" /></td>
+</tr>
+<tr>
 	<th>제목</th>
 	<td><input type="text" name="title" 
 		value="<%=boardDTO.getTitle() %>"  required="required"/></td>

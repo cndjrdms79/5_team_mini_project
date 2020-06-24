@@ -35,7 +35,7 @@ body {
 <script type="text/javascript">
 <% if (result) { %>
 alert('글이 수정되었습니다.');
-location.href='view.jsp';
+location.href='view.jsp?no=<%=no%>';
 <% } else      { %>
 alert('응 안돼 돌아가');
 location.href='javascript:history.back();';
