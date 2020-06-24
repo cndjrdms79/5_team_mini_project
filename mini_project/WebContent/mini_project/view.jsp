@@ -50,8 +50,8 @@ body {
 </table><br/>
 
 <a href="bbs.jsp">목록</a>
-<a href="update.jsp?no=<%=boardDTO.getUser_id()%>">수정</a>
-<a href="delete.jsp?no=<%=boardDTO.getUser_id()%>">삭제</a>
+<a href="update.jsp?no=<%=boardDTO.getNo()%>">수정</a>
+<a href="delete.jsp?no=<%=boardDTO.getNo()%>">삭제</a>
 
 <%		} %>
 </div>

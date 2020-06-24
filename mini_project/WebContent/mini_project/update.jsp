@@ -1,22 +1,13 @@
-<%@page import="user.UserDAO"%>
-<%@page import="user.UserDTO"%>
 <%@page import="board.BoardDTO"%>
+<%@page import="board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String user_id = request.getParameter("user_id");	
-	String user_pw = request.getParameter("user_pw");	
-	String title = request.getParameter("title");
-	String user_email = request.getParameter("content");
-
-	BoardDTO boardDTO = new BoardDTO();
-	boardDTO.setUser_id(user_id);
+	String user_id = (String)session.getAttribute("user_id");
 	
-	UserDTO userDTO = new UserDTO();
-	userDTO.setUser_id(user_id);
-
-	UserDAO userDAO = UserDAO.getInstance();
-	int result = userDAO.loginCheck(user_id,user_pw);
+	long no = Long.parseLong(request.getParameter("no"));
+	BoardDAO boardDAO = BoardDAO.getInstance();	
+	BoardDTO boardDTO = boardDAO.getView(no);
 %>
 <!DOCTYPE html>
 <html>
@@ -33,6 +24,7 @@ body {
 </style>
 </head>
 <body>
+<form action="update_action.jsp" method="post">
 <table>
 <caption>게시물 수정</caption>
 <tr>

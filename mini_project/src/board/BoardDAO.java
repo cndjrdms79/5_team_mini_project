@@ -63,19 +63,22 @@ public class BoardDAO {
 		
 		return list;
 	}
-	// 게시글 상세보기
+	//게시글 상세보기
 	public BoardDTO getView(long no) {
 		BoardDTO boardDTO = null;
+		
 		StringBuffer sql = new StringBuffer();
 		sql.append(" select no, title, user_id, regdate, content");
-		sql.append(" from t_board");
-		sql.append(" where no=?");
+		sql.append(" from   t_board");
+		sql.append(" where  no = ?");
 		
-		try(Connection conn = getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql.toString())){
+		try (Connection conn = getConnection();
+			PreparedStatement pstmt = 
+				conn.prepareStatement(sql.toString())){
 			pstmt.setLong(1, no);
-			try(ResultSet rs = pstmt.executeQuery()){
-				if(rs.next()) {
+			try (ResultSet rs = pstmt.executeQuery()) {
+			
+				if(rs.next()){
 					boardDTO = new BoardDTO();
 					boardDTO.setNo(rs.getLong("no"));
 					boardDTO.setTitle(rs.getString("title"));
@@ -83,10 +86,10 @@ public class BoardDAO {
 					boardDTO.setRegdate(rs.getDate("regdate"));
 					boardDTO.setContent(rs.getString("content"));
 				}
-			}catch(Exception e) {
+			} catch(Exception e) {
 				e.printStackTrace();
 			}
-		}catch(Exception e){
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		return boardDTO;
@@ -114,4 +117,31 @@ public class BoardDAO {
 		}
 		return result;
 	}
+	
+	// 게시글 수정하기
+		public boolean updateBoard(BoardDTO boardDTO) {
+			boolean result = false;
+			
+			StringBuffer sql = new StringBuffer();
+			sql.append(" update t_board set");
+			sql.append("       ,title  = ?");
+			sql.append("       ,content= ?");
+			sql.append(" where  no = ?");
+			
+			try (Connection conn = getConnection();
+				PreparedStatement pstmt = 
+					conn.prepareStatement(sql.toString())){
+
+				pstmt.setString(1, boardDTO.getTitle());
+				pstmt.setString(2, boardDTO.getContent());
+				pstmt.setLong(3, boardDTO.getNo());
+
+				if (pstmt.executeUpdate() > 0) {
+					result = true;
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			} 
+			return result;
+		}
 }
