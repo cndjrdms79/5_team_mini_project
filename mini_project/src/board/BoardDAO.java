@@ -51,20 +51,17 @@ public class BoardDAO {
 			try(ResultSet rs = pstmt.executeQuery()) {
 				while (rs.next()) { // 입력한 아이디에 해당하는 비번이 있는경우
 					BoardDTO boardDTO = new BoardDTO();
-					boardDTO.setNo(rs.getInt("no"));
+					boardDTO.setNo(rs.getLong("no"));
 					boardDTO.setTitle(rs.getString("title"));
 					boardDTO.setUser_id(rs.getString("user_id"));
 					boardDTO.setRegdate(rs.getDate("regdate"));
 					list.add(boardDTO);
 			}
 				
-			}catch (Exception e) {
-				e.printStackTrace();
 			}
 		}catch(Exception e){
 				e.printStackTrace();
 		}
-		
 		return list;
 	}
 	//게시글 상세보기
@@ -90,8 +87,6 @@ public class BoardDAO {
 					boardDTO.setRegdate(rs.getDate("regdate"));
 					boardDTO.setContent(rs.getString("content"));
 				}
-			} catch(Exception e) {
-				e.printStackTrace();
 			}
 		} catch(Exception e) {
 			e.printStackTrace();

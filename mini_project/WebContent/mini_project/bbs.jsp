@@ -9,7 +9,7 @@
     pageEncoding="UTF-8"%>
 <%
     String user_id = (String)session.getAttribute("user_id");
-
+	
 	BoardDAO boardDAO = BoardDAO.getInstance();
 	List<BoardDTO> list = boardDAO.board_selete();
 	
@@ -108,12 +108,12 @@ body {
 					</tr>
 				</thead>
 				<tbody>
-					<% for (int i = 0; i < list.size(); i++) { %>
+					<% for (BoardDTO boardDTO : list) { %>
 					<tr>
-						<td><%=(i + 1)%></td>
-						<td><a href="view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
-						<td><%=list.get(i).getUser_id()%></td>
-						<td><%=list.get(i).getRegdate()%></td>
+						<td><%=boardDTO.getNo()%></td>
+						<td><a href="view.jsp?no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%></a></td>
+						<td><%=boardDTO.getUser_id() %></td>
+						<td><%=boardDTO.getRegdate() %></td>
 					</tr>
 					<% } %>
 				</tbody>

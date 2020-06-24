@@ -10,6 +10,8 @@
 	String user_pw = request.getParameter("user_pw");	// request.getParameter user_pw 요청
 	//user_pw = DigestUtils.sha512Hex(user_pw);			// user_pw를 암호화 하여 user_pw 안에 넣기
 	
+	
+	
 	UserDTO userDTO = new UserDTO();
 	userDTO.setUser_id(user_id);
 	userDTO.setUser_pw(user_pw);
@@ -39,8 +41,9 @@
 			session.setAttribute("user_id", userInfo.getUser_id());
 			session.setAttribute("user_name", userInfo.getUser_name());
 			response.sendRedirect("main.jsp");
-			return;
-	 } else {		// user_id와 user_pw 가 틀린경우	%>
+			
+			return; 	
+	 	} else {		// user_id와 user_pw 가 틀린경우	%>
 
 	<script type="text/javascript">   // alert : 화면에 메세지 박스 가뜸
 		alert('아이디 혹은 비밀번호가 틀립니다.');
