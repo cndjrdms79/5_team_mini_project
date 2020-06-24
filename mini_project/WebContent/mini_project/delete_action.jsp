@@ -7,14 +7,12 @@
     pageEncoding="UTF-8"%>
 <%
 	String user_id = (String)session.getAttribute("user_id");
-
 	long no = Long.parseLong(request.getParameter("no"));
-	String title = request.getParameter("title");
+	
 
 	BoardDTO boardDTO = new BoardDTO();
 	boardDTO.setNo(no);
-	boardDTO.setTitle(title);
-	
+	boardDTO.setUser_id(user_id);
 	
 	BoardDAO boardDAO = BoardDAO.getInstance();
 	boolean result = boardDAO.deleteBoard(boardDTO);
@@ -40,9 +38,8 @@ body {
 	location.href='bbs.jsp?no=<%=no%>';
 <% } else	  { %>
 	alert('게시물 삭제 권한이 없습니다');
-	locatuon.href='javascript:history.back();';
-<% }			%>
-
+	location.href='bbs.jsp';
+<% }	%>
 </script>
 </body>
 </html>

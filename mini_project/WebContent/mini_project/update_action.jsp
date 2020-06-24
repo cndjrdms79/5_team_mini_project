@@ -4,7 +4,6 @@
     pageEncoding="UTF-8"%>
 <%
 	String user_id = (String)session.getAttribute("user_id");
-
 	long no = Long.parseLong(request.getParameter("no"));
 	String title  = request.getParameter("title");
 	String content= request.getParameter("content");
@@ -13,6 +12,7 @@
 	boardDTO.setNo(no);
 	boardDTO.setTitle(title);
 	boardDTO.setContent(content);
+	boardDTO.setUser_id(user_id);
 	
 	BoardDAO boardDAO = BoardDAO.getInstance();
 	boolean result = boardDAO.updateBoard(boardDTO);
@@ -34,11 +34,11 @@ body {
 <body>
 <script type="text/javascript">
 <% if (result) { %>
-alert('글이 수정되었습니다.');
-location.href='view.jsp?no=<%=no%>';
-<% } else      { %>
-alert('응 안돼 돌아가');
-location.href='javascript:history.back();';
+	alert('글이 수정되었습니다.');
+	location.href='view.jsp?no=<%=no%>';
+<% } else { %>
+	alert('게시물 수정 권한이 없습니다.');
+	location.href='javascript:history.back();';
 <% }             %>
 </script>
 </body>

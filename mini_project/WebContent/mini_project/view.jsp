@@ -50,10 +50,14 @@ body {
 </table><br/>
 
 <a href="bbs.jsp">목록</a>
-<a href="update.jsp?no=<%=boardDTO.getNo()%>">수정</a>
-<a href="delete.jsp?no=<%=boardDTO.getNo()%>">삭제</a>
 
-<%		} %>
+<% if(user_id != null && user_id.equals(boardDTO.getUser_id())){ %>
+<a href="update.jsp?no=<%=boardDTO.getNo()%>">수정</a>
+<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="delete_action.jsp?no=<%=boardDTO.getNo()%>">삭제</a>
+<%		
+	}
+}
+%>
 </div>
 </body>
 </html>

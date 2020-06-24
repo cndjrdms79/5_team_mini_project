@@ -126,7 +126,7 @@ public class BoardDAO {
 			sql.append(" update t_board set");
 			sql.append("        title  = ?");
 			sql.append("       ,content= ?");
-			sql.append(" where  no = ?");
+			sql.append(" where  no = ? and user_id = ?");
 			
 			try (Connection conn = getConnection();
 				PreparedStatement pstmt = 
@@ -135,6 +135,7 @@ public class BoardDAO {
 				pstmt.setString(1, boardDTO.getTitle());
 				pstmt.setString(2, boardDTO.getContent());
 				pstmt.setLong(3, boardDTO.getNo());
+				pstmt.setString(4, boardDTO.getUser_id());
 
 				if (pstmt.executeUpdate() > 0) {
 					result = true;
@@ -151,15 +152,13 @@ public class BoardDAO {
 
 			StringBuffer sql= new StringBuffer();
 			sql.append(" delete t_board");
-			sql.append(" where  no = ?");
-			sql.append(" and	title = ?");
+			sql.append(" where  no = ? and user_id = ?" );
 			
 			try (Connection conn = getConnection();
-				PreparedStatement pstmt = 
-					conn.prepareStatement(sql.toString())){
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString())){
 				
 				pstmt.setLong(1, boardDTO.getNo());
-				pstmt.setString(2, boardDTO.getTitle());
+				pstmt.setString(2, boardDTO.getUser_id());
 				if(pstmt.executeUpdate() > 0) {
 					result = true;
 				}
