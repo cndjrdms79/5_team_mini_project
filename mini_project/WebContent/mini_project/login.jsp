@@ -82,6 +82,7 @@ body {
 	</nav>
 	<br><h2>로그인 화면</h2><br/>
 
+
 <div align="center">
 <form action="login_action.jsp" method="post">
 <table>
