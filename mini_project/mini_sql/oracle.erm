@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2020-06-20 15:50:32</creation_date>
-			<updated_date>2020-06-22 17:45:31</updated_date>
+			<updated_date>2020-06-24 10:38:38</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -378,7 +378,7 @@
 		</word>
 		<word>
 			<id>13</id>
-			<length>30</length>
+			<length>128</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
@@ -402,7 +402,7 @@
 			<width>282</width>
 				<font_name>맑은 고딕</font_name>
 				<font_size>9</font_size>
-			<x>444</x>
+			<x>408</x>
 			<y>60</y>
 			<color>
 				<r>128</r>
@@ -419,7 +419,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>9</word_id>
+					<word_id>10</word_id>
 					<id>0</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -780,7 +780,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>10</word_id>
+					<word_id>9</word_id>
 					<id>10</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -821,7 +821,7 @@
 					<physical_name></physical_name>
 					<type>date</type>
 					<constraint></constraint>
-					<default_value></default_value>
+					<default_value>sysdate</default_value>
 					<auto_increment>false</auto_increment>
 					<foreign_key>false</foreign_key>
 					<not_null>true</not_null>

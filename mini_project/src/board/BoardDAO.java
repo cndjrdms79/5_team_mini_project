@@ -37,8 +37,9 @@ public class BoardDAO {
 	public List<BoardDTO> board_selete() {
 		List<BoardDTO> list = new ArrayList<BoardDTO>();
 		StringBuffer sql = new StringBuffer();
-		sql.append(" select * ");
+		sql.append(" select no, title, user_id, regdate ");
 		sql.append(" from   t_board");
+		sql.append(" order by no desc");
 
 		try(Connection conn = getConnection();
 				PreparedStatement pstmt =  conn.prepareStatement(sql.toString())){
@@ -62,7 +63,7 @@ public class BoardDAO {
 		
 		return list;
 	}
-	
+	// 게시글 상세보기
 	public BoardDTO getView(long no) {
 		BoardDTO boardDTO = null;
 		StringBuffer sql = new StringBuffer();
@@ -91,7 +92,26 @@ public class BoardDAO {
 		return boardDTO;
 	}
 	
-	
-	
-	
+	// 게시글 작성하기
+	public boolean writeBoard(BoardDTO boardDTO) {
+		boolean result = false;
+		
+		StringBuffer sql = new StringBuffer();
+		sql.append(" insert into t_board(no, title, content)");
+		sql.append(" valuse(t_board_no_seq.nextval, ?, ?)");
+		
+		try(Connection conn = getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString())){
+			
+			pstmt.setString(1, boardDTO.getTitle());
+			pstmt.setString(2, boardDTO.getContent());
+			
+			if(pstmt.executeUpdate() > 0) {
+				result = true;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

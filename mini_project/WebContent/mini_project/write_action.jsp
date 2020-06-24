@@ -1,37 +1,22 @@
+<%@page import="board.BoardDAO"%>
+<%@page import="board.BoardDTO"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	String user_id = (String)session.getAttribute("user_id");
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
-	boolean result = false;
-	Connection conn = null;
-	PreparedStatement pstmt = null;
 	
-	StringBuffer sql = new StringBuffer();
-	sql.append(" insert into T_BOARD(no, title, content)");
-	sql.append(" values(T_BOARD_no_seq.nextval, ?, ?)");
+	BoardDTO boardDTO = new BoardDTO();
+	boardDTO.setTitle(title);
+	boardDTO.setContent(content);
 	
-	try {
-			Class.forName("oracle.jdbc.OracleDriver");
-			conn = DriverManager.getConnection(
-					"jdbc:oracle:thin:@localhost:1521:xe", "mini", "mini");
-		pstmt=conn.prepareStatement(sql.toString());
-		pstmt.setString(1, title);
-		pstmt.setString(2, content);
-		if(pstmt.executeUpdate() > 0) {
-			result = true;
-		}
-	} catch(Exception e) {
-		e.printStackTrace();
-	} finally {
-		if(pstmt!=null)try{pstmt.close();}catch(Exception e) {}
-		if(conn !=null)try{conn.close(); }catch(Exception e) {}		
-	}
+	BoardDAO boardDAO = BoardDAO.getInstance();
+	boolean result = boardDAO.writeBoard(boardDTO);
 	
-
 %>
 <!DOCTYPE html>
 <html>
@@ -48,15 +33,27 @@ body {
 </style>
 </head>
 <body>
-<script type="text/javascript">
-<% if (result) { %> 
-	location.href='bbs.jsp';
-<% } else { %>
-	alert('입력에 실패했습니다');
-	location.href='javascript:history.back()';
 
 
+<% if(user_id == null) {%>
+	<script type="text/javascript">
+	alert('먼저 로그인 해주세요.');
+	location.href='login.jsp';
+	</script>
 <% } %>
-</script>
+
+<!-- 문제 1 -->
+<% if (result == false) { %>
+	<script type="text/javascript">
+	alert('글쓰기에 실패했습니다');
+	location.href='javascript:history.back()';
+	</script> 
+<% } else { %>
+	<script type="text/javascript">
+	alert('글쓰기 성공!')
+	location.href='bbs.jsp';
+	</script>
+<% } %>
+
 </body>
 </html>

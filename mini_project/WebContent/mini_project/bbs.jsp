@@ -93,7 +93,7 @@ body {
 			<li class="nav-item"><a href="login.jsp">접속하기</a></li>
 		</ul>
 		<%  }  %>
-	</nav>
+	</nav><br/>
 
 
 	<div class="container-md">

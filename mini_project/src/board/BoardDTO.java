@@ -10,7 +10,6 @@ public class BoardDTO implements Serializable{
 	private String user_id;
 	private String content;
 	private Date regdate;
-	private int available;
 	
 	public long getNo() {
 		return no;
@@ -42,17 +41,11 @@ public class BoardDTO implements Serializable{
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	public int getAvailable() {
-		return available;
-	}
-	public void setAvailable(int available) {
-		this.available = available;
-	}
 	
 	@Override
 	public String toString() {
 		return "BoardDTO [no=" + no + ", title=" + title + ", user_id=" + user_id + ", content=" + content
-				+ ", regdate=" + regdate + ", available=" + available + "]";
+				+ ", regdate=" + regdate + "]";
 	}
 	
 	
