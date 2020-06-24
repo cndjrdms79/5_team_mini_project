@@ -144,4 +144,29 @@ public class BoardDAO {
 			} 
 			return result;
 		}
+		
+	// 게시글 삭제하기
+		public boolean deleteBoard(BoardDTO boardDTO) {
+			boolean result = false;
+
+			StringBuffer sql= new StringBuffer();
+			sql.append(" delete t_board");
+			sql.append(" where  no = ?");
+			sql.append(" and	title = ?");
+			
+			try (Connection conn = getConnection();
+				PreparedStatement pstmt = 
+					conn.prepareStatement(sql.toString())){
+				
+				pstmt.setLong(1, boardDTO.getNo());
+				pstmt.setString(2, boardDTO.getTitle());
+				if(pstmt.executeUpdate() > 0) {
+					result = true;
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			} 
+			return result;
+		}
+		
 }
