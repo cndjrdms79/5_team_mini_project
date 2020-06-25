@@ -21,21 +21,24 @@
 					<a class="nav-link" href="calendar.jsp"> 달력 <span class="sr-only">(current)</span></a>
 				</li>
 					<li class="nav-item active"><a class="nav-link" href="bbs.jsp">게시판 <span class="sr-only">(current)</span></a></li>
-					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+					
+				
+				<!-- 로그인, 회원가입 -->
+				<%if(user_id2 == null){ %>
+				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">접속하기</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
-						<a class="dropdown-item" href="bbs.jsp">게시판1</a> 
-						<a class="dropdown-item" href="bbs.jsp">게시판2</a> 
-						<a class="dropdown-item" href="bbs.jsp">게시판3</a>
+						<a class="dropdown-item" href="login.jsp">로그인</a> 
+						<a class="dropdown-item" href="join.jsp">회원가입</a> 
 					</div>
 					</li>
-				<li class="nav-item active"><a class="nav-link" href="logout.jsp"> 임시로그아웃 <span class="sr-only">(current)</span></a></li>
-				<!-- 로그인, 회원가입 -->
-				<li>
-					<form class="form-inline my-2 my-lg-0">
-						<input type="submit" class="btn btn-secondary " value="로그인" onclick="location.href='login_action.jsp'"> 
-						<input type="button" class="btn btn-secondary " value="회원가입" onclick="location.href='join.jsp'" />
-					</form>
-				</li>
+				
+				<%} else{ %>
+				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">회원관리</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown">
+						<a class="dropdown-item" href="logout.jsp">로그아웃</a>
+					</div>
+					</li>
+				<%} %>
 			</ul>
 		</div>
 	</nav>
