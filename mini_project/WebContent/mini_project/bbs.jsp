@@ -15,10 +15,7 @@
 %>
 
 <body>
-
-	<br><h2>게시판 화면</h2><br/>
-
-
+	<h2>게시판 화면</h2>
 	<div class="container-md">
 		<div class="row">
 			<table class="table table-table-striped" style="text-align: center; border: 1px solid #dddddd ">
@@ -31,12 +28,12 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% for (int i = 0; i < list.size(); i++) { %>
+					<% for (BoardDTO boardDTO : list) { %>
 					<tr>
-						<td><%=(i + 1)%></td>
-						<td><a href="view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
-						<td><%=list.get(i).getUser_id()%></td>
-						<td><%=list.get(i).getRegdate()%></td>
+						<td><%=boardDTO.getNo()%></td>
+						<td><a href="view.jsp?no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%></a></td>
+						<td><%=boardDTO.getUser_id()%></td>
+						<td><%=boardDTO.getRegdate()%></td>
 					</tr>
 					<% } %>
 				</tbody>

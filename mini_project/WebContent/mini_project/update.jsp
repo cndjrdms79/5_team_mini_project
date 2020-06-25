@@ -11,8 +11,8 @@
 
 <br><h2>게시글수정 화면</h2><br/>
 <body>
-<form action="update_action.jsp" method="post">
 <div align="center">
+<form action="update_action.jsp" method="post">
 <table>
 <tr>
 	<th>글번호</th>
@@ -37,5 +37,7 @@
 	</td>
 </tr>
 </table>
+</form>
+</div>
 </body>
 </html>

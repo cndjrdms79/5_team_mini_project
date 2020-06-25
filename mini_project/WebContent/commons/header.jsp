@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String user_id = (String)session.getAttribute("user_id");
-	String user_name = (String)session.getAttribute("user_name");
+	String user_id2 = (String)session.getAttribute("user_id");
 %>
 <!DOCTYPE html>
 <html>
@@ -10,14 +9,17 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
 <!-- Required meta tags -->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
 	crossorigin="anonymous">
+	
 <style type="text/css">
 body {
    font-family: 'Nanum Pen Script', cursive;
@@ -72,7 +74,7 @@ body {
          <li class="nav-item"><a href="main.jsp">출결관리 웹페이지</a></li>
          <li class="nav-item"><a href="calendar.jsp">달력</a></li>
          <li class="nav-item"><a href="bbs.jsp">게시판</a></li>
-   <% if(user_id != null){ %>
+   <% if(user_id2 != null){ %>
          <li class="nav-item"><a href="logout.jsp">로그아웃</a></li> 
    <%} else {%>
          <li class="nav-item"><a href="login.jsp">접속하기</a></li>
