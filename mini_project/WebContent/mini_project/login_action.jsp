@@ -10,8 +10,6 @@
 	String user_pw = request.getParameter("user_pw");	// request.getParameter user_pw 요청
 	//user_pw = DigestUtils.sha512Hex(user_pw);			// user_pw를 암호화 하여 user_pw 안에 넣기
 	
-	
-	
 	UserDTO userDTO = new UserDTO();
 	userDTO.setUser_id(user_id);
 	userDTO.setUser_pw(user_pw);

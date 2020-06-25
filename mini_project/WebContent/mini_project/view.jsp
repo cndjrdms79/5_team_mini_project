@@ -8,8 +8,11 @@
 <%@ include file = "../commons/header.jsp" %>
 <%
 	long no = Long.parseLong(request.getParameter("no"));
+	String user_id = (String)session.getAttribute("user_id");
+
 	BoardDAO boardDAO = BoardDAO.getInstance();
 	BoardDTO boardDTO = boardDAO.getView(no);
+
 %>    
 
 <br><h2>상세보기 화면</h2><br/>
@@ -17,7 +20,6 @@
 <%	if(boardDTO != null) { %>
 <div align="center">
 <table border="1">
-	<caption>글 상세보기</caption>
 <tr>
 	<th>제목</th>
 	<td><%=boardDTO.getTitle() %></td>
