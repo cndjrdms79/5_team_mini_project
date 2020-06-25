@@ -9,6 +9,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 <body>
+<!-- 홈,게시판 접근 -->
 <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
   <a class="navbar-brand" href="main.jsp">인공지능 AI</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,6 +32,25 @@
           <a class="dropdown-item" href="bbs.jsp">게시판3</a>
         </div>
       </li>
+      
+<!-- 로그인, 회원가입 -->
+      <li>
+	      <form class="form-inline my-2 my-lg-0">
+	      <input class="form-control mr-sm-2" type="search" placeholder="ID" aria-label="Search">
+	   	  </form>
+   	  </li>
+   	  <li>
+	      <form class="form-inline my-2 my-lg-0">
+	      <input class="form-control mr-sm-2" type="search" placeholder="Passwd" aria-label="Search">
+	   	  </form>
+   	  </li>
+   	  <li>
+   	  <button type="submit" class="btn btn-secondary">로그인</button>
+   	  </li>
+   	  
+   	  <li>
+   	  <button type="button" class="btn btn-secondary">회원가입</button>
+   	  </li>
     </ul>
   </div>
 </nav>
