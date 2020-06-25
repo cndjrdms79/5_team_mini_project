@@ -16,9 +16,9 @@
 
 <body>
 	<h2>게시판 화면</h2>
-	<div class="container-md">
+	<div class="container">
 		<div class="row">
-			<table class="table table-table-striped" style="text-align: center; border: 1px solid #dddddd ">
+			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd ">
 				<thead>
 					<tr>
 						<th style="text-align: center">번호</th>
