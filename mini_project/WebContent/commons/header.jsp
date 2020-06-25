@@ -37,20 +37,10 @@
 <!-- 로그인, 회원가입 -->
 	<li>
 	      <form class="form-inline my-2 my-lg-0">
-	     	 <input class="form-control mr-sm-2" type="text" name ="user_id" value="<%=user_id2 %>" required="required" placeholder="ID" maxlength="20">
+	     	  <input type="submit" class="btn btn-secondary " value="로그인" onclick="location.href='login_action.jsp'">
+			  <input type="button" class="btn btn-secondary " value="회원가입" onclick="location.href='join.jsp'"/>
 	   	  </form>
-   	  </li>
-   	  <li>
-	      <form class="form-inline my-2 my-lg-0">
-	     	 <input class="form-control mr-sm-2" type="password" name ="user_pw" required="required" placeholder="Passwd" maxlength="20">
-	   	  </form>
-   	  </li>
-   	  <li>
-	   	  <form>
-		   	  <input type="submit" class="btn btn-secondary" value="로그인">
-			  <input type="button" class="btn btn-secondary" value="회원가입" onclick="location.href='join.jsp'"/>
-	   	  </form>
-   	  </li>   
+   	  </li>	
     </ul>
   </div>
 </nav>
