@@ -72,7 +72,7 @@ body {
    <nav>
       <ul class="nav-container">
          <li class="nav-item"><a href="main.jsp">출결관리 웹페이지</a></li>
-         <li class="nav-item"><a href="calendar.jsp">달력</a></li>
+         <li class="nav-item"><a href="calendar.html">달력</a></li>
          <li class="nav-item"><a href="bbs.jsp">게시판</a></li>
    <% if(user_id2 != null){ %>
          <li class="nav-item"><a href="logout.jsp">로그아웃</a></li> 
