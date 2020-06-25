@@ -23,6 +23,12 @@
 						<td><textarea class="form-control" placeholder="글 내용" maxlength="2048" name="content"
 								required="required" style="height: 350px; width: 1050px;"></textarea></td>
 					</tr>
+				<form action="upload.jsp" method="post" enctype="multipart/form-data">
+					<tr>
+						<th>파일</th>  
+						<td><input type="file" name="file1"></td>
+					</tr>	
+				</form>					
 				</tbody>
 				</table>
 				<div align="right"><input type="submit" class="btn btn-info pull-right" value="글쓰기"></div>
