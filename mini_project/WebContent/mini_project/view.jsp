@@ -5,16 +5,20 @@
 <%@page import="user.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%	request.setCharacterEncoding("utf-8"); // 인코딩 타입 설정 %>
+<%  // upload.jsp(hidden)로 부터 넘어온 값들을 구함
 
-<%
    long no = Long.parseLong(request.getParameter("no"));
    String user_id = (String)session.getAttribute("user_id");
 
    BoardDAO boardDAO = BoardDAO.getInstance();
    BoardDTO boardDTO = boardDAO.getView(no);
+   String fileName = request.getParameter("fileName");
+   String orgfileName = request.getParameter("orgfileName");
 %>
 <%@ include file = "../commons/header.jsp" %>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <br/>
 <h2 align="center">글 상세보기</h2>
 <body>
@@ -35,6 +39,11 @@
 			<tr>
 				<td><%=boardDTO.getContent()%></td>
 			</tr>
+			<tr>
+				<th>파일</th>
+				<td>	<!-- download.jsp 파일로 저장된 파일의 이름을 넘겨줌 -->
+				 	<a href="download.jsp?fileName=<%=fileName%>"><%=orgfileName %></a><br></td>
+				</tr>
 		</table>
 		
 		<br /> <a href="bbs.jsp" class="btn btn-info pull-right"><span style="color: white;">목록</span></a>
