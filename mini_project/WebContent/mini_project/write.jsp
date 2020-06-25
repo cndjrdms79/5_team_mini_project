@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file = "../commons/header.jsp" %> 
-<!DOCTYPE html>
-<html>
+<br/>
 <body>
 	<div class="container">
 		<div class="row">
@@ -31,7 +30,7 @@
 				</form>					
 				</tbody>
 				</table>
-				<div align="right"><input type="submit" class="btn btn-info pull-right" value="글쓰기"></div>
+				<div align="right"><input type="submit" class="btn btn-info" value="글쓰기"></div>
 					
 			</form>
 		</div>
