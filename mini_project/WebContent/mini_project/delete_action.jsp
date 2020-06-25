@@ -9,7 +9,6 @@
 	String user_id = (String)session.getAttribute("user_id");
 	long no = Long.parseLong(request.getParameter("no"));
 	
-
 	BoardDTO boardDTO = new BoardDTO();
 	boardDTO.setNo(no);
 	boardDTO.setUser_id(user_id);
