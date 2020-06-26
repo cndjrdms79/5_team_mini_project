@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file = "../commons/header.jsp" %> 
 <br/>
-<body>
+
 	<div class="container">
 		<div class="row">
 			<form action="write_action.jsp" method="post">

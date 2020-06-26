@@ -25,17 +25,14 @@
 
 		<div class="collapse navbar-collapse" id="navbarsExample06">
 			<ul class="navbar-nav mr-auto">
-				<li>
-					<a class="nav-link" href="calendar.jsp"> 달력 <span class="sr-only">(current)</span></a>
-				</li>
-					<li class="nav-item active"><a class="nav-link" href="bbs.jsp">게시판 <span class="sr-only">(current)</span></a></li>
-					
-				
+				<li class="nav-item"><a class="nav-link" href="calendar.jsp"> 달력 <span class="sr-only">(current)</span></a></li>
+				<li class="nav-item"><a class="nav-link" href="bbs.jsp">게시판 <span class="sr-only">(current)</span></a></li>
+
 				<!-- 로그인, 회원가입 -->
 				<%if(user_id2 == null){ %>
 				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">접속하기</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
-						<a class="dropdown-item" href="login.jsp">로그인</a> 
+						<a class="dropdown-item " href="login.jsp">로그인</a> 
 						<a class="dropdown-item" href="join.jsp">회원가입</a> 
 					</div>
 					</li>

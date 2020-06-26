@@ -13,9 +13,7 @@
 	List<BoardDTO> list = boardDAO.board_selete();
 	
 %>
-
-<body>
-	<h2>게시판 화면</h2>
+<br/><br/>
 	<div class="container">
 		<div class="row">
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd ">
