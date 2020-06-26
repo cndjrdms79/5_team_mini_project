@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file = "../commons/header.jsp" %> 
-<br/>
-
+<br/><br/>
 	<div class="container">
 		<div class="row">
 			<form action="write_action.jsp" method="post">
 				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 				<thead>
 					<tr>
-						<td colspan="2" style="background-color: #eeeeee; text-align: center; ">게시판 글쓰기 화면</td>
+						<td colspan="2" style="background-color: #eeeeee; text-align: center; ">게시글 작성 화면</td>
 					</tr>
 				</thead>
 				<tbody>	
@@ -30,7 +29,7 @@
 				</form>					
 				</tbody>
 				</table>
-				<div align="right"><input type="submit" class="btn btn-info" value="글쓰기"></div>
+				<div align="right"><input type="submit" class="btn btn-dark" value="글쓰기"></div>
 					
 			</form>
 		</div>

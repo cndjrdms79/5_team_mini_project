@@ -61,10 +61,10 @@
 			</tbody>
 		</table>
 		
-		<br /> <a href="bbs.jsp" class="btn btn-info pull-right"><span style="color: white;">목록</span></a>
+		<br /> <a href="bbs.jsp" class="btn btn-dark"><span style="color: white;">목록</span></a>
 		<% if (user_id != null && user_id.equals(boardDTO.getUser_id())) { %>
-			<a href="update.jsp?no=<%=boardDTO.getNo()%>" class="btn btn-info pull-right"><span style="color: white;">수정</span></a> 
-			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="delete_action.jsp?no=<%=boardDTO.getNo()%>" class="btn btn-info pull-right"><span style="color: white;">삭제</span></a>
+			<a href="update.jsp?no=<%=boardDTO.getNo()%>" class="btn btn-dark"><span style="color: white;">수정</span></a> 
+			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="delete_action.jsp?no=<%=boardDTO.getNo()%>" class="btn btn-dark"><span style="color: white;">삭제</span></a>
 		<%
 			}
 		}

@@ -12,7 +12,7 @@
 		user_id = cookies.getValue("user_id");
 	}
 %>
-<h2>로그인 화면</h2>
+<br/><br/><br/>
 <div align="center">
 <form action="login_action.jsp" method="post">
 <table>
@@ -33,11 +33,11 @@
 <tr>
 	<th> </th>
 	<td>
-	<input type="submit" class="btn btn-info" value="로그인" />
-	<input type="button" class="btn btn-info" value="회원가입" onclick="location.href='join.jsp'" />
 	<input type="checkbox" name ="save_id" <%if(!user_id.equals("")){ %>
 													checked="checked" 
-												 <% } %> />아이디저장
+												 <% } %> />아이디저장<br/><br/>
+	<input type="submit" class="btn btn-dark" value="로그인" />
+	<input type="button" class="btn btn-dark" value="회원가입" onclick="location.href='join.jsp'" />
     </td>
 </tr>
 </table>

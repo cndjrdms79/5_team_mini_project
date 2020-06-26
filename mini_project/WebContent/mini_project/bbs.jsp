@@ -38,7 +38,7 @@
 			</table>
 			<br />
 		
-			<a href="write.jsp" class="btn btn-info pull-right"><span style="color: white;">글쓰기</span></a><br />
+			<a href="write.jsp" class="btn btn-dark"><span style="color: white;">글쓰기</span></a><br />
 			
 		</div>
 	</div>

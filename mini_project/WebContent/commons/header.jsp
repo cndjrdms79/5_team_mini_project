@@ -36,7 +36,6 @@
 						<a class="dropdown-item" href="join.jsp">회원가입</a> 
 					</div>
 					</li>
-				
 				<%} else{ %>
 				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">회원관리</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
