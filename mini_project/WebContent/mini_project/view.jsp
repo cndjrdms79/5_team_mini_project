@@ -50,7 +50,7 @@
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td colspan="2" style= "min-height: 200px; text-align: left;"><%=boardDTO.getContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></td>
+						<td colspan="2" style= "min-height: 200px; text-align: left;"><%=boardDTO.getContent()%></td>
 					</tr>
 					
 					<!-- download.jsp 파일로 저장된 파일의 이름을 넘겨줌 -->
