@@ -34,14 +34,10 @@
 								</script>
 						</td>
 					</tr>
-					
-					
-				<form action="upload.jsp" method="post" enctype="multipart/form-data">
 					<tr>
 						<th>파일</th>  
 						<td><input type="file" name="file1"></td>
 					</tr>	
-				</form>					
 				</tbody>
 				</table>
 				

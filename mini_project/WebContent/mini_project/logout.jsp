@@ -4,7 +4,6 @@
 	session.invalidate(); // 세션을 날림
 %>
 <script>
-alert('로그아웃되었습니다.');
-location.href='login.jsp';
-
+	alert('로그아웃되었습니다.');
+	location.href='login.jsp';
 </script>

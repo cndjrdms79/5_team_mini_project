@@ -53,11 +53,13 @@
 						<td colspan="2" style= "min-height: 200px; text-align: left;"><%=boardDTO.getContent()%></td>
 					</tr>
 					
+					<% if(fileName != null){ %>
 					<!-- download.jsp 파일로 저장된 파일의 이름을 넘겨줌 -->
 					<tr> 
 						<th>파일</th>
 						<td colspan="2" style="text-align: left;"><a href="download.jsp?fileName=<%=fileName%>"><%=orgfileName%></a><br></td>
 					</tr>
+					<% } %>
 			</tbody>
 		</table>
 		
