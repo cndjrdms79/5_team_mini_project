@@ -5,6 +5,12 @@
 	String user_name = (String)session.getAttribute("user_name");
 %>
 <%@ include file = "../commons/header.jsp" %>
+
+<%if(user_id != null){ %>
+<script type="text/javascript">
+	alert('<%= user_id + "(" + user_name + ")님이 로그인" %>');
+</script>
+<%} %>
 	<br/><br/>
 	<body class="text-center">
 	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">

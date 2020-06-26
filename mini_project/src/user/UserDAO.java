@@ -60,11 +60,11 @@ public class UserDAO {
 	}
 
 		public boolean join(UserDTO userDTO) {
-			
+				
 			boolean result = false;
 			StringBuffer sql = new StringBuffer();
-			sql.append(" insert into T_USER(user_id, user_pw, user_name, user_gender, user_email, user_birthdate, user_phone, user_addr)");
-			sql.append(" values(?, ?, ?, ?, ?, ?, ?, ?)");
+			sql.append(" insert into T_USER(user_id, user_pw, user_name, user_gender, user_email, user_birthdate, user_phone, user_postcode, user_addr, user_detailaddr, user_extraaddr)");
+			sql.append(" values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			
 			try(Connection conn = getConnection();
 					PreparedStatement pstmt =  conn.prepareStatement(sql.toString())){
@@ -75,7 +75,11 @@ public class UserDAO {
 				pstmt.setString(5, userDTO.getUser_email());
 				pstmt.setString(6, userDTO.getUser_birthdate());
 				pstmt.setString(7, userDTO.getUser_phone());
-				pstmt.setString(8, userDTO.getUser_addr());
+				pstmt.setString(8, userDTO.getUser_postcode());
+				pstmt.setString(9, userDTO.getUser_addr());
+				pstmt.setString(10, userDTO.getUser_detailaddr());
+				pstmt.setString(11, userDTO.getUser_extraaddr());
+				
 				if (pstmt.executeUpdate() > 0) { // 정상수행이면 1로 return 한다.
 					result = true;
 				}
@@ -85,7 +89,5 @@ public class UserDAO {
 			}
 			return result; // 데이터베이스 오류
 		}
-			
-		
-	
 }
+			

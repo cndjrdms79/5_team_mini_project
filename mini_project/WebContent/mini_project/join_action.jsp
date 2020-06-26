@@ -11,7 +11,10 @@
 	String user_gender = request.getParameter("user_gender");
 	String user_email = request.getParameter("user_email");
 	String user_phone = request.getParameter("user_phone");
+	String user_postcode = request.getParameter("user_postcode");
 	String user_addr = request.getParameter("user_addr");
+	String user_detailaddr = request.getParameter("user_detailaddr");
+	String user_extraaddr = request.getParameter("user_extraaddr");
 	
 	UserDTO userDTO = new UserDTO();
 	userDTO.setUser_id(user_id);
@@ -21,7 +24,10 @@
 	userDTO.setUser_gender(user_gender);
 	userDTO.setUser_email(user_email);
 	userDTO.setUser_phone(user_phone);
+	userDTO.setUser_postcode(user_postcode);
 	userDTO.setUser_addr(user_addr);
+	userDTO.setUser_detailaddr(user_detailaddr);
+	userDTO.setUser_extraaddr(user_extraaddr);
 	
 	UserDAO userDAO = UserDAO.getInstance();
 	boolean result = userDAO.join(userDTO);
