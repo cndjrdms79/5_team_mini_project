@@ -21,7 +21,7 @@
 %>
 <%@ include file = "../commons/header.jsp" %>
 
-<br/>
+<br/><br/>
 	<%
 		if (boardDTO != null) {
 	%>
@@ -71,7 +71,7 @@
 		%>
 	</div>
 </div>
-
+<br/><br/><br/>
 <!-- 댓글기능! -->
 	<div id="disqus_thread"></div>
 	<script>
