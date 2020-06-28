@@ -4,7 +4,6 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6e2734bc69aa5434fd1aaa1fe61817c&libraries=services"></script>
 
-	<h2>회원가입</h2>
 <div align="center">
 	<form action="join_action.jsp" method="get">
 		<table>
@@ -142,8 +141,8 @@ function execDaumPostcode() {
 			<tr>
 				<th></th>
 				<td>
-					<input type="submit" class="btn btn-info" value="회원가입" />
-					<input type="reset" class="btn btn-info" value="초기화" />
+					<input type="submit" class="btn btn-dark" value="회원가입" />
+					<input type="reset" class="btn btn-dark" value="초기화" />
 				
 				</td>
 			</tr>

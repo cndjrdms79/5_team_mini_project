@@ -27,10 +27,10 @@
 	%>
 	<div class="container">
 		<div class="row">
-			<table class="table table-striped"  style="text-align: center; border: 1px solid #dddddd">
+			<table class="table table-striped table-dark"  style="text-align: center;">
 				<thead>
 					<tr>
-						<th colspan="3" style="background-color: #dddddd; text-align: center;"> 게시글 상세보기 </th>
+						<th colspan="3" style="background-color: #343a40; text-align: center;"> 게시글 상세보기 </th>
 					</tr>
 				</thead>
 				

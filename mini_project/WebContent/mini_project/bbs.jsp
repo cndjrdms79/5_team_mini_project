@@ -16,7 +16,7 @@
 <br/><br/>
 	<div class="container">
 		<div class="row">
-			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd ">
+			<table class="table table-striped table-dark" style="text-align: center;">
 				<thead>
 					<tr>
 						<th style="text-align: center">번호</th>
