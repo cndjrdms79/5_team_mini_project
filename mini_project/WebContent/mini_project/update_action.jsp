@@ -38,7 +38,7 @@ body {
 	location.href='view.jsp?no=<%=no%>';
 <% } else { %>
 	alert('게시물 수정 권한이 없습니다.');
-	location.href='javascript:history.back();';
+	location.href='javascript:history.back()';
 <% }             %>
 </script>
 </body>

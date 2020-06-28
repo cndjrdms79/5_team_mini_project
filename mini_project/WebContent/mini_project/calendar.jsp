@@ -1,24 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<link rel="icon" type="image/png" href="/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    
+<%@ include file = "../commons/header.jsp" %> 
 <link rel="stylesheet" type="text/css" href="css/cale_form.css" />
-<style type="text/css">
-	 body {
-        font-family: 'Nanum Pen Script', cursive;
-        font-size: 25px;
-      }
-</style>
-
-<title>Insert title here</title>
-</head>
-<body>
-
-	<div class="container">
+<br/>
+	<div class="container" align="center">
 		<div class="my-calendar clearfix">
 			<div class="clicked-date">
 				<div class="cal-day"></div>
@@ -33,7 +19,6 @@
 						<div id="input-list" class="input-list"></div>
 					</div>
 				</div>
-			
 			
 			<div class="calendar-box">
 				<div class="ctr-box clearfix">

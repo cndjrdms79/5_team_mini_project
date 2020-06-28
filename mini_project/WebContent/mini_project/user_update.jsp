@@ -3,9 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	String user_id = (String)session.getAttribute("user_id");
 	
-	String user_id = request.getParameter("user_id");	
-	String user_pw = request.getParameter("user_pw");	
 	String user_name = request.getParameter("user_name");
 	String user_birthdate = request.getParameter("user_birthdate");
 	String user_gender = request.getParameter("user_gender");
@@ -18,7 +17,6 @@
 	
 	UserDTO userDTO = new UserDTO();
 	userDTO.setUser_id(user_id);
-	userDTO.setUser_pw(user_pw);
 	userDTO.setUser_name(user_name);
 	userDTO.setUser_birthdate(user_birthdate);
 	userDTO.setUser_gender(user_gender);
@@ -30,10 +28,10 @@
 	userDTO.setUser_extraaddr(user_extraaddr);
 	
 	UserDAO userDAO = UserDAO.getInstance();
-	boolean result = userDAO.join(userDTO);
+	boolean result = userDAO.updateUser(userDTO);
 	
-
-%>
+%>    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,17 +47,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% if (result){ %>
-	<script type="text/javascript">
-		alert('회원가입에 성공했습니다.');
-		location.href="login.jsp";
-	</script>
-<% }else{ %>
-	<script type="text/javascript">
-		alert('이미 존재하는 아이디 입니다.');
-		location.href='javascript:history.back()';
-	</script>
-<%} %>
-
+<script type="text/javascript">
+<% if(result){ %>
+	alert('회원정보가 수정되었습니다.');
+	location.href='user_info.jsp?user_id=<%=user_id%>';
+<% } else { %>
+	alert('회원정보 수정 권한이 없습니다.');
+	location.href='javascript:history.back()';
+<% } %>
+</script>
 </body>
 </html>

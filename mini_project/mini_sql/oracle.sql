@@ -49,6 +49,11 @@ CREATE TABLE t_user
 );
 
 select * from T_BOARD;
+select * from t_user;
+
+select * from t_user where user_id='next';
+
+update t_user set user_name='정정민' where user_id='next';
 
 
 

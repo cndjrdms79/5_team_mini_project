@@ -1,7 +1,8 @@
+<%@page import="user.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-   String user_id2 = (String)session.getAttribute("user_id");
+	String user_id2 = (String)session.getAttribute("user_id");
 %>
 <!DOCTYPE html>
 <html>
@@ -40,6 +41,7 @@
 				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">회원관리</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
 						<a class="dropdown-item" href="logout.jsp">로그아웃</a>
+						<a class="dropdown-item" href="user_info.jsp?user_id=<%=user_id2%>">회원정보관리</a>
 					</div>
 					</li>
 				<%} %>
