@@ -1,7 +1,8 @@
+<%@page import="user.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-   String user_id2 = (String)session.getAttribute("user_id");
+	String user_id2 = (String)session.getAttribute("user_id");
 %>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
+<link rel="stylesheet" type="text/css" href="main.css">
+<style>
+body{
+		background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-opacity: 0.9;
+		height: 100%;
+		color: white;
+	}
+
+</style>
 
 <title>덤프트럭</title>
 </head>
@@ -40,6 +53,7 @@
 				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">회원관리</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
 						<a class="dropdown-item" href="logout.jsp">로그아웃</a>
+						<a class="dropdown-item" href="user_info.jsp?user_id=<%=user_id2%>">회원정보관리</a>
 					</div>
 					</li>
 				<%} %>
