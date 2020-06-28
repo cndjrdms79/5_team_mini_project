@@ -12,7 +12,11 @@
 		user_id = cookies.getValue("user_id");
 	}
 %>
+
+
+
 <br/><br/><br/>
+<body>
 <div align="center">
 <form action="login_action.jsp" method="post">
 <table>
@@ -27,7 +31,7 @@
 
 <tr>
 	<td>비밀번호</td>
-	<td><input type = "password" name ="user_pw" required="required" placeholder="Password"/ maxlength="20"></td>
+	<td><input type = "password" name ="user_pw" required="required" placeholder="Password" maxlength="20"></td>
 </tr>
 
 <tr>
