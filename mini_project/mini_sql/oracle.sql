@@ -28,6 +28,9 @@ CREATE TABLE t_board
 	user_id varchar2(30) NOT NULL,
 	regdate date DEFAULT sysdate NOT NULL,
 	content clob NOT NULL,
+	file_name varchar2(1000),
+	file_volume varchar2(500),
+	content_type varchar2(50),
 	PRIMARY KEY (no)
 );
 
@@ -49,11 +52,4 @@ CREATE TABLE t_user
 );
 
 select * from T_BOARD;
-select * from t_user;
-
-select * from t_user where user_id='next';
-
-update t_user set user_name='정정민' where user_id='next';
-
-
 
