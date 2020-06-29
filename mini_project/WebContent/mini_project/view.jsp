@@ -75,7 +75,7 @@
 </div>
 <br/><br/><br/>
 <!-- 댓글기능! -->
-	<div id="disqus_thread"></div>
+	<div class="container" id="disqus_thread"></div>
 	<script>
 		(function() { // DON'T EDIT BELOW THIS LINE
 			var d = document, s = d.createElement('script');
