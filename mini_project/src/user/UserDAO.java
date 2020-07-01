@@ -192,5 +192,27 @@ public class UserDAO {
 		return result;
 	}
 		
+	// 회원가입시 중복아이디 미리 확인!
+		public boolean isExistUser_id(String user_id) { 
+			boolean result = false;
+			StringBuffer sql = new StringBuffer();
+			sql.append(" select 'false' ");
+			sql.append(" from   t_user");
+			sql.append(" where  user_id=?");
+
+			try(Connection conn = getConnection();
+					PreparedStatement pstmt =  conn.prepareStatement(sql.toString())){
+				pstmt.setString(1, user_id);
+				
+				try(ResultSet rs = pstmt.executeQuery()) {
+					if (!rs.next()) { 
+						result=true;
+					}
+				}
+			}catch(Exception e){
+					e.printStackTrace();
+			}
+			return result; 
+		}
 }
 			

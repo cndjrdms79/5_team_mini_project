@@ -4,12 +4,15 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c6e2734bc69aa5434fd1aaa1fe61817c&libraries=services"></script>
 
+<br/><br/><br/>
 <div align="center">
 	<form action="join_action.jsp" method="get">
 		<table>
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" placeholder="아이디" name="user_id" autofocus="autofocus" required="required" /></td>
+				<td><input type="text" placeholder="아이디" name="user_id"  id="user_id"
+					autofocus="autofocus" required="required" />
+				<button id="btnidcheck" type="button">아이디 중복체크</button><div id="id_msg"></div></td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
@@ -27,7 +30,7 @@
 				<th>성별</th>
 				<td>
 					<input type="radio" name="user_gender" value="남자" checked="checked"   />남자
-					<input type="radio" name="user_gender" value="여자" checked="checked"  />여자
+					<input type="radio" name="user_gender" value="여자"   />여자
 				</td>
 			</tr>	
 			<tr>
@@ -51,29 +54,29 @@
 					<input type="text" id="user_detailaddr" name="user_detailaddr"  placeholder="상세주소">
 					<input type="text" id="user_extraaddr" name="user_extraaddr"  placeholder="참고항목">
 					
-					<div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
+					<div id="map" style="width:500px;height:300px;margin-top:10px;display:none"></div>
 				</td>
 				
 			<script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-      mapOption = {
-          center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
-          level: 5 // 지도의 확대 레벨
-      };
+			var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+      		mapOption = {
+          	center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+          	level: 5 // 지도의 확대 레벨
+      		};
 
-  //지도를 미리 생성
-  var map = new daum.maps.Map(mapContainer, mapOption);
-  //주소-좌표 변환 객체를 생성
-  var geocoder = new daum.maps.services.Geocoder();
-  //마커를 미리 생성
-  var marker = new daum.maps.Marker({
-      position: new daum.maps.LatLng(37.537187, 127.005476),
-      map: map
-  });
+  			//지도를 미리 생성
+  			var map = new daum.maps.Map(mapContainer, mapOption);
+  			//주소-좌표 변환 객체를 생성
+  			var geocoder = new daum.maps.services.Geocoder();
+  			//마커를 미리 생성
+  			var marker = new daum.maps.Marker({
+      			position: new daum.maps.LatLng(37.537187, 127.005476),
+      			map: map
+  			});
 			
-function execDaumPostcode() {
-    new daum.Postcode({
-        oncomplete: function(data) {
+			function execDaumPostcode() {
+    		new daum.Postcode({
+        	oncomplete: function(data) {
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
             // 각 주소의 노출 규칙에 따라 주소를 조합한다.
@@ -137,13 +140,14 @@ function execDaumPostcode() {
     }).open();
 }
 </script>
-			</tr>					
+	</tr>					
 			<tr>
 				<th></th>
 				<td>
+					<input type="hidden" name="confirm_id" id="confirm_id" />
 					<input type="submit" class="btn btn-dark" value="회원가입" />
 					<input type="reset" class="btn btn-dark" value="초기화" />
-				
+					
 				</td>
 			</tr>
 		</table>
@@ -151,3 +155,35 @@ function execDaumPostcode() {
 </div>
 </body>
 </html>
+
+
+<script>
+	$(document).ready(function(){
+		$('#btnidcheck').on('click',function(){
+			if ( $('#user_id').val().length < 4) {
+				alert('아이디는 4글자 이상 입력하세요');
+				$('#user_id').focus();
+				$('#confirm_id').val('ok');
+				
+				return;
+			}
+			
+			$.post( "check_id.jsp",{ user_id : $('#user_id').val()})
+			 .done(function( data ) {
+				  if (data.trim() == "true") {
+					  $('#id_msg').html($('#user_id').val() + '는 사용 가능한 아이디 입니다.');
+// 					  $('#user_pw').focus();
+					  return;
+				  } else {
+					  $('#id_msg').html($('#user_id').val() + '는 이미 사용중인 아이디 입니다.');
+					  $('#user_id').focus();
+					  return;
+				  }
+			});
+		});
+		document.getElementById("confirm_id").onchange = function(){
+			alert('test');
+		}
+	});
+
+</script>

@@ -56,11 +56,6 @@
 	          }
 	     }
 	          
-	     
-	
-		
-		
-		
 
 // 		long file_volume = Long.parseLong(multi.getParameter("file_volume"));	// 추가 line
 
@@ -106,7 +101,7 @@ body {
 <% if(user_id == null) {%>
 	<script type="text/javascript">
 	alert('먼저 로그인 해주세요.');
-	location.href='login.jsp';
+	location.href='../login.jsp';
 	</script>
 <% } %>
 

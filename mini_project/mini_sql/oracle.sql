@@ -3,6 +3,7 @@
 
 DROP TABLE t_board CASCADE CONSTRAINTS;
 DROP TABLE t_user CASCADE CONSTRAINTS;
+DROP TABLE t_attendance CASCADE CONSTRAINTS;
 
 
 
@@ -20,6 +21,14 @@ CREATE SEQUENCE t_board_no_seq;
 
 
 /* Create Tables */
+CREATE TABLE t_attendance
+(
+   user_id varchar2(30) NOT NULL,
+   attendance varchar2(100) NOT NULL
+);
+alter table t_attendance
+add constraint t_attendance_unique unique(user_id, attendance); /* 아이디랑 날짜 중복체크 */
+
 
 CREATE TABLE t_board
 (
@@ -53,6 +62,7 @@ CREATE TABLE t_user
 
 select * from T_BOARD;
 select * from t_user;
+select * from t_attendance;
 
 select * from t_user where user_id='next';
 

@@ -40,7 +40,9 @@ body{
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="calendar.jsp"> 달력 <span class="sr-only">(current)</span></a></li>
 				<li class="nav-item"><a class="nav-link" href="bbs.jsp">게시판 <span class="sr-only">(current)</span></a></li>
-
+		    </ul>
+		    
+         	<ul class="navbar-nav ml-auto">
 				<!-- 로그인, 회원가입 -->
 				<%if(user_id2 == null){ %>
 				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">접속하기</a>
@@ -53,7 +55,7 @@ body{
 				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">회원관리</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
 						<a class="dropdown-item" href="logout.jsp">로그아웃</a>
-						<a class="dropdown-item" href="user_info.jsp?user_id=<%=user_id2%>">회원정보관리</a>
+						<a class="dropdown-item" href="user_info.jsp?user_id=<%=user_id2%>">회원정보</a>
 					</div>
 					</li>
 				<%} %>

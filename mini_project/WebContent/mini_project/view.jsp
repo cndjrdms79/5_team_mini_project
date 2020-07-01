@@ -60,7 +60,7 @@
 						<td colspan="2" style="text-align: left;"><a href="download.jsp?fileName=<%=boardDTO.getFile_name()%>"><%=boardDTO.getFile_name() %><br>
 						<% String contentType = boardDTO.getContent_type().substring(0,boardDTO.getContent_type().indexOf("/")); %>
 						<% if (contentType.equals("image")) { %>
-							<img src="download.jsp?fileName=<%=boardDTO.getFile_name()%>" />
+							<img src="download.jsp?fileName=<%=boardDTO.getFile_name()%>" style="max-width: 100%; height: auto;" />
 						<% } else if (contentType.equals("audio")) { %>
 							<audio controls autoplay>
 							 <source src="download.jsp?fileName=<%=boardDTO.getFile_name()%>" type="audio/mpeg">
@@ -87,7 +87,7 @@
 </div>
 <br/><br/><br/>
 <!-- 댓글기능! -->
-	<div id="disqus_thread"></div>
+	<div class="container" id="disqus_thread"></div>
 	<script>
 		(function() { // DON'T EDIT BELOW THIS LINE
 			var d = document, s = d.createElement('script');

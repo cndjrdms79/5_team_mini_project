@@ -22,7 +22,7 @@ html, body {
   padding: 20px 20px 10px;
   text-align: center;
   font-weight: 800;
-  border: 1px solid #ddd;
+  border: 1px solid #343a40;
   cursor: default;
 }
 .my-calendar .clicked-date {
@@ -31,17 +31,7 @@ html, body {
   float: left;
   width: 42%;
   padding: 46px 0 26px;
-  background: #ddd;
-}
-
-.todo-wrap{
-  padding: 0 0 0 40px;
-}
-
-.todo-title{
-  font-size: 20px;
-  font-weight: 100;
-  margin: 0 0 10px 0;
+  background: #343a40;
 }
 
 .my-calendar .calendar-box {
@@ -83,6 +73,7 @@ html, body {
   line-height: 25px;
   font-weight: bold;
   font-size: 20px;
+  color: white;
 }
 .ctr-box .btn-cal.next {
   float: right;
@@ -111,12 +102,12 @@ html, body {
   cursor: pointer;
 }
 .cal-table td.today {
-  background: #ffd255;
+  background: #ddd;
   border-radius: 50%;
   color: #fff;
 }
 .cal-table td.day-active {
-  background: #ff8585;
+  background: #343a40;
   border-radius: 50%;
   color: #fff;
 }
